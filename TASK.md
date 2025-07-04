@@ -34,8 +34,8 @@ This document breaks down the implementation of the Cache-Augmented Generation (
 ## Phase 5: Deployment & Documentation (Backend)
 
 - [x] **Task 5.1:** Create the `vercel.json` configuration file for deploying the FastAPI application on Vercel.
-- [ ] **Task 5.2:** Update the project `README.md` with detailed setup instructions, API usage, and deployment steps.
-- [ ] **Task 5.3:** Review all code for clarity, add necessary inline comments, and ensure all functions have Google-style docstrings.
+- [x] **Task 5.2:** Update the project `README.md` with detailed setup instructions, API usage, and deployment steps.
+- [x] **Task 5.3:** Review all code for clarity, add necessary inline comments, and ensure all functions have Google-style docstrings.
 
 ## Phase 6: Frontend Implementation (Next.js)
 

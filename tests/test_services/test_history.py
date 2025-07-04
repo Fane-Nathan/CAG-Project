@@ -6,10 +6,10 @@ import json
 
 @pytest.mark.asyncio
 @patch("redis.asyncio.client.Redis.from_url")
-async def test_history_service(mock_from_url):
+async def test_history_service(mock_from_url, settings):
     mock_redis = AsyncMock()
     mock_from_url.return_value = mock_redis
-    history_service = HistoryService()
+    history_service = HistoryService(settings)
 
     await history_service.add_turn("test_user", "test_message", "user")
     mock_redis.rpush.assert_called_once_with(

@@ -1,5 +1,4 @@
 from redis.asyncio.client import Redis
-from app.core.config import settings
 from typing import List, Dict, Any
 import json
 
@@ -9,7 +8,7 @@ class HistoryService:
     A service for managing chat history in Redis.
     """
 
-    def __init__(self):
+    def __init__(self, settings):
         self.redis = Redis.from_url(settings.redis_url, decode_responses=True)
 
     async def add_turn(self, user_id: str, message: str, role: str):

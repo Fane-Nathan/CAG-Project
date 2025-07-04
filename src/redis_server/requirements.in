@@ -1,0 +1,9 @@
+# src/redis_server/requirements.in
+
+fastapi
+uvicorn
+gptcache
+redis-om
+transformers
+onnxruntime
+python-dotenv
