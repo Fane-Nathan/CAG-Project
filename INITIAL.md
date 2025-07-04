@@ -1,6 +1,6 @@
-## FEATURE:
+## FEATURE: Cache-Augmented Generation (CAG) System with FastAPI Redis Server
 
-Implement a Cache-Augmented Generation (CAG) system integrated with a web crawler to create a dynamic, information-retrieval and processing pipeline. The system will use Google's `gemini-2.0-flash` model as its core intelligence.
+This feature implements a comprehensive Cache-Augmented Generation (CAG) system, leveraging a web crawler and a dedicated FastAPI Redis server to provide dynamic, information-retrieval, and processing capabilities. The system will utilize Google's `gemini-2.0-flash` model as its core intelligence.
 
 The primary workflow will be as follows:
 1.  A web crawling component, built using the **`crawl4ai`** library, will fetch and extract clean, LLM-friendly markdown content from specified URLs.
@@ -9,6 +9,14 @@ The primary workflow will be as follows:
 4.  **Persistent Chat History:** All interactions between the user and the AI will be logged and stored to maintain conversational context. This history will be used in subsequent prompts to enable fluid, multi-turn dialogues.
 
 This feature combines real-time data acquisition, intelligent caching, and stateful conversation management to provide users with up-to-date, context-aware, and efficient AI-driven insights.
+
+A self-contained FastAPI application will run as a separate process, providing a dedicated API for the AI agent to interact with and manage its caching and history database (Redis). This server will be configured via `settings.json` and can be run locally for development or deployed to Vercel for production.
+
+Key functionalities of this server include:
+-   **Cache Management:** Endpoints for storing, retrieving, and invalidating cached LLM responses and crawled data.
+-   **Chat History Management:** Endpoints for logging, retrieving, and managing conversational turns and context.
+-   **Health Checks:** API endpoints to monitor the status and availability of the Redis connection and the server itself.
+-   **Configuration:** The server will read its Redis connection details and other operational parameters from a `settings.json` file, allowing for flexible deployment environments.
 
 ## EXAMPLES:
 

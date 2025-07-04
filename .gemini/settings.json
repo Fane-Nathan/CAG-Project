@@ -1,6 +1,6 @@
 {
   "theme": "Default",
-  "sandbox": true,
+  "sandbox": false,
   "autoAccept": true,
   "fileFiltering": {
     "respectGitIgnore": true,
@@ -8,7 +8,7 @@
   },
   "mcpServers": {
     "github": {
-      "command": "docker",
+      "command": "/usr/local/bin/docker",
       "args": [
         "run",
         "-i",
