@@ -31,11 +31,19 @@ This document breaks down the implementation of the Cache-Augmented Generation (
 - [x] **Task 4.4:** Write unit tests for the `CachingService` and `HistoryService`, mocking the Redis connection.
 - [x] **Task 4.5:** Write integration tests for the API endpoint in `tests/test_api.py`.
 
-## Phase 5: Deployment & Documentation
+## Phase 5: Deployment & Documentation (Backend)
 
 - [x] **Task 5.1:** Create the `vercel.json` configuration file for deploying the FastAPI application on Vercel.
 - [ ] **Task 5.2:** Update the project `README.md` with detailed setup instructions, API usage, and deployment steps.
 - [ ] **Task 5.3:** Review all code for clarity, add necessary inline comments, and ensure all functions have Google-style docstrings.
+
+## Phase 6: Frontend Implementation (Next.js)
+
+- [ ] **Task 6.1:** Scaffold a new Next.js project in a `frontend/` directory.
+- [ ] **Task 6.2:** Create a basic user interface with an input field for prompts and a display area for generated text.
+- [ ] **Task 6.3:** Implement client-side logic to send requests to the FastAPI `/generate` endpoint.
+- [ ] **Task 6.4:** Integrate Vercel Web Analytics into the Next.js application.
+- [ ] **Task 6.5:** Create a `vercel.json` within the `frontend/` directory for deploying the Next.js application.
 
 ## Discovered During Work
 

@@ -1,6 +1,6 @@
-# PRP: Cache-Augmented Generation (CAG) System with FastAPI Redis Server
+# PRP: Cache-Augmented Generation (CAG) System with FastAPI Redis Server and Next.js Frontend
 
-## Feature Name: Cache-Augmented Generation (CAG) System with FastAPI Redis Server
+## Feature Name: Cache-Augmented Generation (CAG) System with FastAPI Redis Server and Next.js Frontend
 
 ## Overview
 
@@ -13,6 +13,8 @@ The primary workflow involves:
 4.  Persistent chat history management (Redis) to maintain conversational context for fluid, multi-turn dialogues.
 
 A self-contained FastAPI application will run as a separate process, providing a dedicated API for the AI agent to interact with and manage its caching and history database (Redis). This server will be configured via `settings.json` and can be run locally for development or deployed to Vercel for production.
+
+To provide a user-friendly interface and enable web analytics, a separate **Next.js frontend application** will be developed. This frontend will interact with the FastAPI backend and be deployed independently on Vercel.
 
 Key functionalities of this server include:
 -   Cache Management: Endpoints for storing, retrieving, and invalidating cached LLM responses and crawled data.
@@ -67,6 +69,12 @@ Key functionalities of this server include:
 *   **Deployment (Vercel):**
     *   Vercel documentation for Python/FastAPI deployments: [https://vercel.com/docs/runtimes#official-runtimes/python](https://vercel.com/docs/runtimes#official-runtimes/python)
     *   Serverless function patterns compatible with FastAPI on Vercel.
+*   **Frontend Framework (Next.js):**
+    *   Official Documentation: [https://nextjs.org/docs](https://nextjs.org/docs)
+    *   Key aspects: React-based, server-side rendering (SSR), static site generation (SSG), API routes, optimized for Vercel.
+*   **Vercel Web Analytics:**
+    *   Official Documentation: [https://vercel.com/docs/analytics](https://vercel.com/docs/analytics)
+    *   Focus on: Simple integration for visitor and page view tracking.
 
 ## Implementation Blueprint
 
@@ -76,7 +84,7 @@ The implementation will be structured to ensure modularity, testability, and adh
 
 ```
 +-------------------+       +-------------------+       +-------------------+
-|   AI Agent (CLI)  | <---> | FastAPI Redis API | <---> |       Redis       |
+| Next.js Frontend  | <---> | FastAPI Redis API | <---> |       Redis       |
 +-------------------+       +-------------------+       +-------------------+
         ^                           ^
         |                           |
@@ -142,12 +150,19 @@ The implementation will be structured to ensure modularity, testability, and adh
     *   Update the agent's logic to use the web crawler for information retrieval.
     *   Adapt the `examples/cli.py` and `examples/agent/agent.py` patterns for tool registration and dependency injection.
 
-6.  **Deployment Configuration (Vercel):**
+6.  **Next.js Frontend Implementation (`frontend/`):**
+    *   **Project Setup:** Scaffold a new Next.js project.
+    *   **Basic UI:** Create a simple user interface with an input field and display area.
+    *   **API Integration:** Implement client-side logic to call the FastAPI `/generate` endpoint.
+    *   **Vercel Analytics:** Integrate Vercel Web Analytics for visitor and page view tracking.
+
+7.  **Deployment Configuration (Vercel):**
     *   Create `vercel.json` at the project root for deploying the FastAPI application as a serverless function.
     *   Configure environment variables for Vercel deployment.
+    *   Create a separate `vercel.json` within the `frontend/` directory for deploying the Next.js application.
 
-7.  **Documentation Updates:**
-    *   Update `README.md` with setup and running instructions for the FastAPI server.
+8.  **Documentation Updates:**
+    *   Update `README.md` with setup and running instructions for both the FastAPI server and the Next.js frontend.
     *   Add details about `settings.json` and `.env.example`.
 
 ### Error Handling Strategy

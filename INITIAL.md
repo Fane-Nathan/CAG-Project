@@ -1,4 +1,4 @@
-## FEATURE: Cache-Augmented Generation (CAG) System with FastAPI Redis Server
+## FEATURE: Cache-Augmented Generation (CAG) System with FastAPI Redis Server and Next.js Frontend
 
 This feature implements a comprehensive Cache-Augmented Generation (CAG) system, leveraging a web crawler and a dedicated FastAPI Redis server to provide dynamic, information-retrieval, and processing capabilities. The system will utilize Google's `gemini-2.0-flash` model as its core intelligence.
 
@@ -17,6 +17,13 @@ Key functionalities of this server include:
 -   **Chat History Management:** Endpoints for logging, retrieving, and managing conversational turns and context.
 -   **Health Checks:** API endpoints to monitor the status and availability of the Redis connection and the server itself.
 -   **Configuration:** The server will read its Redis connection details and other operational parameters from a `settings.json` file, allowing for flexible deployment environments.
+
+### Frontend Integration (Next.js)
+
+To provide a user-friendly interface and enable web analytics, a separate Next.js frontend application will be developed. This frontend will:
+-   Provide a user interface for interacting with the FastAPI backend (e.g., submitting prompts, displaying LLM responses).
+-   Integrate with Vercel Web Analytics to track visitor and page view data.
+-   Be deployed independently on Vercel.
 
 ## EXAMPLES:
 
