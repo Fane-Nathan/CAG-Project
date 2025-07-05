@@ -39,12 +39,12 @@ This document breaks down the implementation of the Cache-Augmented Generation (
 
 ## Phase 6: Frontend Implementation (Next.js)
 
-- [ ] **Task 6.1:** Scaffold a new Next.js project in a `frontend/` directory.
-- [ ] **Task 6.2:** Create a basic user interface with an input field for prompts and a display area for generated text.
-- [ ] **Task 6.3:** Implement client-side logic to send requests to the FastAPI `/generate` endpoint.
-- [ ] **Task 6.4:** Integrate Vercel Web Analytics into the Next.js application.
-- [ ] **Task 6.5:** Create a `vercel.json` within the `frontend/` directory for deploying the Next.js application.
+- [x] **Task 6.1:** Scaffold a new Next.js project in a `frontend/` directory.
+- [x] **Task 6.2:** Create a basic user interface with an input field for prompts and a display area for generated text.
+- [x] **Task 6.3:** Implement client-side logic to send requests to the FastAPI `/generate` endpoint.
+- [x] **Task 6.4:** Integrate Vercel Web Analytics into the Next.js application.
+- [x] **Task 6.5:** Create a `vercel.json` within the `frontend/` directory for deploying the Next.js application.
 
 ## Discovered During Work
 
-*(Use this section to add any new tasks or sub-tasks that are identified during the development process.)*
+*(See the FINAL_SUMMARY.md & DEPLOYMENT.md to see all the discovered works.)*

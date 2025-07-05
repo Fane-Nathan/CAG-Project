@@ -26,12 +26,15 @@ class TestSettings(BaseSettings):
     model_config = SettingsConfigDict(env_file=os.path.join(PROJECT_ROOT, ".env.test"), env_file_encoding="utf-8")
 
     @model_validator(mode='after')
-    def parse_redis_url(self):
+    def parse_redis_url(self) -> 'TestSettings':
         if self.redis_url:
-            conn = from_url(self.redis_url)
-            self.redis_host = conn.connection_pool.connection_kwargs.get("host")
-            self.redis_port = conn.connection_pool.connection_kwargs.get("port")
-            self.redis_db = conn.connection_pool.connection_kwargs.get("db")
+            try:
+                conn = from_url(self.redis_url)
+                self.redis_host = conn.connection_pool.connection_kwargs.get("host")
+                self.redis_port = conn.connection_pool.connection_kwargs.get("port")
+                self.redis_db = conn.connection_pool.connection_kwargs.get("db")
+            except Exception as e:
+                raise ValueError(f"Invalid Redis URL: {e}") from e
         return self
 
 @pytest.fixture(scope="session")
@@ -48,8 +51,16 @@ def override_dependencies():
     Mocks application dependencies for API tests.
     """
     mock_llm_provider_instance = AsyncMock()
-    mock_gptcache_service_instance = MagicMock()
+    mock_gptcache_service_instance = AsyncMock()
     mock_history_service_instance = AsyncMock()
+    
+    # Mock all the new GPTCache methods
+    mock_gptcache_service_instance.get_llm_response = AsyncMock(return_value=None)
+    mock_gptcache_service_instance.set_llm_response = AsyncMock()
+    mock_gptcache_service_instance.get_crawled_data = AsyncMock(return_value=None)
+    mock_gptcache_service_instance.set_crawled_data = AsyncMock()
+    mock_gptcache_service_instance.get = AsyncMock(return_value=None)
+    mock_gptcache_service_instance.set = AsyncMock()
 
     app.dependency_overrides[get_llm_provider] = lambda: mock_llm_provider_instance
     app.dependency_overrides[get_gptcache_service] = lambda: mock_gptcache_service_instance
