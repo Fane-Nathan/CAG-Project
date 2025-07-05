@@ -1761,3 +1761,6 @@
 2025-07-06 00:13:03 - app.services.simple_caching - INFO - get_crawled_data:98 - Crawl cache hit for URL: https://distill.pub/2021/multimodal-neurons/
 2025-07-06 00:13:11 - app.services.simple_caching - INFO - set_llm_response:79 - LLM response cached with key: 04aad257...
 2025-07-06 00:13:11 - app.middleware.security - INFO - dispatch:63 - Response: 200 for POST /cag in 8.496s
+2025-07-06 00:36:48 - app.main - INFO - lifespan:38 - === CAG System Shutting Down ===
+2025-07-06 00:36:48 - app.main - INFO - lifespan:39 - Cleanup completed successfully
+2025-07-06 00:36:48 - app.main - INFO - lifespan:40 - === Shutdown Complete ===
