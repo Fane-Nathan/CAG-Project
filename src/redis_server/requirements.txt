@@ -27,8 +27,8 @@ cryptography==45.0.5
     #   types-pyopenssl
     #   types-redis
 fastapi==0.115.14
-    # via -r src/redis_server/requirements.in
-filelock==3.18.0
+    # via -r requirements.in
+filelock==4.2.1
     # via
     #   huggingface-hub
     #   transformers
@@ -37,7 +37,7 @@ flatbuffers==25.2.10
 fsspec==2025.5.1
     # via huggingface-hub
 gptcache==0.1.44
-    # via -r src/redis_server/requirements.in
+    # via -r requirements.in
 h11==0.16.0
     # via uvicorn
 hf-xet==1.1.5
@@ -64,7 +64,7 @@ numpy==2.3.1
     #   onnxruntime
     #   transformers
 onnxruntime==1.22.0
-    # via -r src/redis_server/requirements.in
+    # via -r requirements.in
 packaging==25.0
     # via
     #   huggingface-hub
@@ -83,7 +83,7 @@ pydantic-core==2.33.2
 pyjwt==2.9.0
     # via redis
 python-dotenv==1.1.1
-    # via -r src/redis_server/requirements.in
+    # via -r requirements.in
 python-ulid==1.1.0
     # via redis-om
 pyyaml==6.0.2
@@ -93,7 +93,7 @@ pyyaml==6.0.2
 redis==5.3.0
     # via redis-om
 redis-om==0.3.5
-    # via -r src/redis_server/requirements.in
+    # via -r requirements.in
 regex==2024.11.6
     # via transformers
 requests==2.32.4
@@ -116,7 +116,7 @@ tqdm==4.67.1
     #   huggingface-hub
     #   transformers
 transformers==4.53.1
-    # via -r src/redis_server/requirements.in
+    # via -r requirements.in
 types-cffi==1.17.0.20250523
     # via types-pyopenssl
 types-pyopenssl==24.1.0.20240722
@@ -138,7 +138,7 @@ typing-inspection==0.4.1
 urllib3==2.5.0
     # via requests
 uvicorn==0.35.0
-    # via -r src/redis_server/requirements.in
+    # via -r requirements.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
